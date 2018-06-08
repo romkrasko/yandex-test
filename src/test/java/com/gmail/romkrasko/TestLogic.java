@@ -13,6 +13,7 @@ import static com.gmail.romkrasko.BrowserFactory.*;
 public class TestLogic {
 
     private BrowserFactory singleton = BrowserFactory.getInstance();
+    private WaiterClass wait = new WaiterClass();
 
 
     public void goYandex() {
@@ -26,8 +27,8 @@ public class TestLogic {
     }
 
     public void setLocation(String location) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement geoInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".input__control.input__input")));
+        WebElement geoInput = driver.findElement(By.cssSelector(".input__control.input__input"));
+        wait.WaitUntilElementIsEnable(geoInput);
         geoInput.clear();
         geoInput.sendKeys(location);
         try {
@@ -39,8 +40,8 @@ public class TestLogic {
     }
 
     public void clickMoreButton() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement labelMore = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".home-link.home-link_blue_yes.home-tabs__link.home-tabs__more-switcher")));
+        WebElement labelMore = driver.findElement(By.cssSelector(".home-link.home-link_blue_yes.home-tabs__link.home-tabs__more-switcher"));
+        wait.WaitUntilElementIsEnable(labelMore);
         labelMore.click();
     }
 
