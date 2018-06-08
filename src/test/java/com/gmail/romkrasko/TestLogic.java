@@ -45,31 +45,20 @@ public class TestLogic {
         labelMore.click();
     }
 
-    public String[] rememberTheContentsParis() {
-        String[] nameParis = new String[22];
+    public String[] rememberTheContents() {
+        String[] names = new String[22];
         int i = 0;
-        List<WebElement> listElementsParis = driver.findElements(By.cssSelector(".home-tabs__more-item"));
-        for (WebElement element : listElementsParis) {
-            nameParis[i] = element.getText();
+        List<WebElement> listElements = driver.findElements(By.cssSelector(".home-tabs__more-item"));
+        for (WebElement element : listElements) {
+            names[i] = element.getText();
             i++;
         }
-        return nameParis;
-    }
-
-    public String[] rememberTheContentsLondon() {
-        String[] nameLondon = new String[22];
-        int i = 0;
-        List<WebElement> listElementsLondon = driver.findElements(By.cssSelector(".home-tabs__more-item"));
-        for (WebElement element : listElementsLondon) {
-            nameLondon[i] = element.getText();
-            i++;
-        }
-        return nameLondon;
+        return names;
     }
 
     public int compareCotntents(String[] nameLondon, String[] nameParis) {
         int res = 1;
-        for (int i = 0; i < 22; i++) {
+        for (int i = 0; i < nameLondon.length-1; i++) {
             res = nameLondon[i].compareTo(nameParis[i]);
             if (res == 1) {
                 break;

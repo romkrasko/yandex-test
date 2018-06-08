@@ -21,7 +21,7 @@ public class BaseTest{
 
         logic.clickMoreButton();
 
-        String[] nameParis = logic.rememberTheContentsParis();
+        String[] nameParis = logic.rememberTheContents();
 
         logic.clickToGeoButton();
 
@@ -29,7 +29,7 @@ public class BaseTest{
 
         logic.clickMoreButton();
 
-        String[] nameLondon = logic.rememberTheContentsLondon();
+        String[] nameLondon = logic.rememberTheContents();
 
         int expectedResult = 0;
         int actualResult=logic.compareCotntents(nameLondon,nameParis);
