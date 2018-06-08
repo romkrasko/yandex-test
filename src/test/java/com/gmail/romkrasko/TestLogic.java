@@ -46,33 +46,14 @@ public class TestLogic {
     }
 
     public String[] rememberTheContents() {
-        String[] names = new String[22];
-        int i = 0;
         List<WebElement> listElements = driver.findElements(By.cssSelector(".home-tabs__more-item"));
+        int size = listElements.size();
+        String[] names = new String[size];
+        int i = 0;
         for (WebElement element : listElements) {
             names[i] = element.getText();
             i++;
         }
         return names;
-    }
-
-    public int compareCotntents(String[] nameLondon, String[] nameParis) {
-        int res = 1;
-        for (int i = 0; i < nameLondon.length-1; i++) {
-            res = nameLondon[i].compareTo(nameParis[i]);
-            if (res == 1) {
-                break;
-            }
-        }
-        return res;
-    }
-    public void endTestCase(int exRes,int actRes){
-        if (exRes == actRes){
-            System.out.println("Success");
-        }else{
-            System.out.println("Failed(");
-            WebElement rrr = driver.findElement(By.cssSelector(".dhsdffhdythdtyh"));
-        }
-
     }
 }

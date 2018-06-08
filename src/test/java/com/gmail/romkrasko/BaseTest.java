@@ -1,6 +1,7 @@
 package com.gmail.romkrasko;
 
 import org.testng.annotations.*;
+import org.testng.Assert;
 
 import static com.gmail.romkrasko.BrowserFactory.*;
 
@@ -31,10 +32,7 @@ public class BaseTest{
 
         String[] nameLondon = logic.rememberTheContents();
 
-        int expectedResult = 0;
-        int actualResult=logic.compareCotntents(nameLondon,nameParis);
-
-        logic.endTestCase(expectedResult,actualResult);
+        Assert.assertEquals(nameLondon,nameParis);
 
     }
 
